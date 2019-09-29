@@ -38,7 +38,7 @@ ctys = c('USA','CHN','DEU','JPN','IND','NGA','IDN','BRA','FRA','GBR')
 ctt = c('US','CHN',"GER","JPN",'IND','NGA','INDO','BRA','FRA','UK')
 
 #initialize plot
-plot(1,xlim=c(-2,30),ylim=c(-0.4,0.1),type="n",las=1,cex.axis=1.3)
+plot(1,xlim=c(-2,30),ylim=c(-0.4,0.1),type="n",las=1,cex.axis=1.3, xlab="Average Annual Temperature (degC)", ylab="Change in ln(GDP per capita)")
 
 # add vertical average temperature lines for selected countries
 for (j in 1:length(ctys)) {
@@ -95,7 +95,7 @@ resp <- resp[resp$x>=5,]  #dropping estimates below 5C, since so little poor cou
 mods = unique(as.character(resp$model))
 
 m <- "growthWDI"
-plot(1,xlim=c(5,30),ylim=c(-0.35,0.1),type="n",las=1,cex.axis=1.3,cex.lab=1.3,ylab="",xlab="")
+plot(1,xlim=c(5,30),ylim=c(-0.35,0.1),type="n",las=1,cex.axis=1.3,cex.lab=1.3,ylab="Change in ln(GDP per capita)",xlab="")
 smp = resp$model==m & resp$interact==1  #poor countries
 xx = resp$x[smp]
 mx = max(resp$estimate[smp])
@@ -125,6 +125,7 @@ base = -0.35
 zz1 <- hist(poortemp,plot=F,breaks=bins)
 cts = zz1$counts/max(zz1$counts)*0.05
 rect(bins,base,bins+0.5,base+cts,col="lightblue")
+
 
 
 ########################################################

@@ -38,7 +38,7 @@ ctys = c('USA','CHN','DEU','JPN','IND','NGA','IDN','BRA','FRA','GBR')
 ctt = c('US','CHN',"GER","JPN",'IND','NGA','INDO','BRA','FRA','UK')
 
 #initialize plot
-plot(1,xlim=c(-2,30),ylim=c(-0.4,0.1),type="n",las=1,cex.axis=1.3, xlab="Average Annual Temperature (degC)", ylab="Change in ln(GDP per capita)")
+plot(1,xlim=c(-2,30),ylim=c(-0.4,0.1),type="n",las=1,cex.axis=1.3, xlab="Average Annual Temperature (oC)", ylab="Change in ln(GDP per capita)")
 
 # add vertical average temperature lines for selected countries
 for (j in 1:length(ctys)) {
@@ -95,7 +95,7 @@ resp <- resp[resp$x>=5,]  #dropping estimates below 5C, since so little poor cou
 mods = unique(as.character(resp$model))
 
 m <- "growthWDI"
-plot(1,xlim=c(5,30),ylim=c(-0.35,0.1),type="n",las=1,cex.axis=1.3,cex.lab=1.3,ylab="Change in ln(GDP per capita)",xlab="")
+plot(1,xlim=c(5,30),ylim=c(-0.35,0.1),type="n",las=1,cex.axis=1.3,cex.lab=1.3,ylab="Change in ln(GDP per capita)",xlab="Average Annual Temperature (oC)")
 smp = resp$model==m & resp$interact==1  #poor countries
 xx = resp$x[smp]
 mx = max(resp$estimate[smp])
@@ -141,7 +141,7 @@ est = resp$estimate[smp] - mx
 min90 = resp$min90[smp] - mx
 max90 = resp$max90[smp] - mx
 
-plot(1,xlim=c(5,30),ylim=c(-0.35,0.1),type="n",las=1,cex.axis=1.3,cex.lab=1.3,ylab="",xlab="")
+plot(1,xlim=c(5,30),ylim=c(-0.35,0.1),type="n",las=1,cex.axis=1.3,cex.lab=1.3,ylab="",xlab="Average Annual Temperature (oC)")
 polygon(c(xx,rev(xx)),c(min90,rev(max90)),col="lightblue",border=NA)
 lines(xx,est,lwd=2,col="steelblue3")
 # now add point estimate for later period
@@ -177,7 +177,7 @@ mods = unique(as.character(resp$model))
 toplot=c("AgrGDPgrowthCap","NonAgrGDPgrowthCap")
 
 for (m in toplot) {
-  plot(1,xlim=c(5,30),ylim=c(-0.35,0.1),type="n",las=1,cex.axis=1.3,cex.lab=1.3,ylab="",xlab="")
+  plot(1,xlim=c(5,30),ylim=c(-0.35,0.1),type="n",las=1,cex.axis=1.3,cex.lab=1.3,ylab="Change in ln(GDP per capita)",xlab="Average Annual Temperature (oC)")
   smp = resp$model==m & resp$interact==1  #poor countries
   xx = resp$x[smp]
   mx = max(resp$estimate[smp])

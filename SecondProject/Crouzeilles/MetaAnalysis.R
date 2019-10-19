@@ -102,10 +102,10 @@ randomRows = function(df,n){
 }
 library("plyr")
 
-## Bootstrap for meta-analysis
+## Bootstrap for meta-analysis ALL THESE ORIGINALLY 10000 RUNS
 ## Plants
 b.Plants <- c()
-for (i in 1:10000){
+for (i in 1:100){
   # First take 1 comparisons per study landscape
   bsample <- ddply(Plants,.(Site),randomRows,1)
   #now calculate the bootstrap estimate for mean RR
@@ -114,63 +114,63 @@ for (i in 1:10000){
 
 ## Invertebrates
 b.Invertebrates <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Invertebrates,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Invertebrates <- c(b.Invertebrates,bestimate)}
 
 ## Birds
 b.Birds <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Birds,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Birds <- c(b.Birds,bestimate)}
 
 ## Herpeto
 b.Herpeto <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Herpeto,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Herpeto <- c(b.Herpeto,bestimate)}
 
 ## Mammals
 b.Mammals <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Mammals,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Mammals <- c(b.Mammals,bestimate)}
 
 ## Cover
 b.Cover <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Cover,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Cover <- c(b.Cover,bestimate)}
 
 ## Density
 b.Density <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Density,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Density <- c(b.Density,bestimate)}
 
 ## Biomass
 b.Biomass <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Biomass,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Biomass <- c(b.Biomass,bestimate)}
 
 ## Height
 b.Height <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Height,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Height <- c(b.Height,bestimate)}
 
 ## Litter
 b.Litter <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Litter,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Litter <- c(b.Litter,bestimate)}
@@ -281,10 +281,10 @@ randomRows = function(df,n){
 }
 library("plyr")
 
-## Bootstrap for meta-analysis
+## Bootstrap for meta-analysis AGAIN 10000 TIMES
 ## Plants
 b.Plants <- c()
-for (i in 1:10000){
+for (i in 1:100){
   # First take 1 comparisons per study landscape
   bsample <- ddply(Plants,.(Site),randomRows,1)
   #now calculate the bootstrap estimate for mean RR
@@ -293,63 +293,63 @@ for (i in 1:10000){
 
 ## Invertebrates
 b.Invertebrates <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Invertebrates,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Invertebrates <- c(b.Invertebrates,bestimate)}
 
 ## Birds
 b.Birds <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Birds,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Birds <- c(b.Birds,bestimate)}
 
 ## Herpeto
 b.Herpeto <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Herpeto,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Herpeto <- c(b.Herpeto,bestimate)}
 
 ## Mammals
 b.Mammals <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Mammals,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Mammals <- c(b.Mammals,bestimate)}
 
 ## Cover
 b.Cover <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Cover,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Cover <- c(b.Cover,bestimate)}
 
 ## Density
 b.Density <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Density,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Density <- c(b.Density,bestimate)}
 
 ## Biomass
 b.Biomass <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Biomass,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Biomass <- c(b.Biomass,bestimate)}
 
 ## Height
 b.Height <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Height,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Height <- c(b.Height,bestimate)}
 
 ## Litter
 b.Litter <- c()
-for (i in 1:10000){
+for (i in 1:100){
   bsample <- ddply(Litter,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Litter <- c(b.Litter,bestimate)}

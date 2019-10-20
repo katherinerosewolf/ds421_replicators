@@ -105,7 +105,7 @@ library("plyr")
 ## Bootstrap for meta-analysis ALL THESE ORIGINALLY 10000 RUNS
 ## Plants
 b.Plants <- c()
-for (i in 1:100){
+for (i in 1:1000){
   # First take 1 comparisons per study landscape
   bsample <- ddply(Plants,.(Site),randomRows,1)
   #now calculate the bootstrap estimate for mean RR
@@ -114,71 +114,71 @@ for (i in 1:100){
 
 ## Invertebrates
 b.Invertebrates <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Invertebrates,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Invertebrates <- c(b.Invertebrates,bestimate)}
 
 ## Birds
 b.Birds <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Birds,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Birds <- c(b.Birds,bestimate)}
 
 ## Herpeto
 b.Herpeto <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Herpeto,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Herpeto <- c(b.Herpeto,bestimate)}
 
 ## Mammals
 b.Mammals <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Mammals,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Mammals <- c(b.Mammals,bestimate)}
 
 ## Cover
 b.Cover <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Cover,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Cover <- c(b.Cover,bestimate)}
 
 ## Density
 b.Density <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Density,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Density <- c(b.Density,bestimate)}
 
 ## Biomass
 b.Biomass <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Biomass,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Biomass <- c(b.Biomass,bestimate)}
 
 ## Height
 b.Height <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Height,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Height <- c(b.Height,bestimate)}
 
 ## Litter
 b.Litter <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Litter,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Litter <- c(b.Litter,bestimate)}
 
 ## Join results
-meanRR<-matrix(c(b.Plants,b.Invertebrates,b.Birds,b.Herpeto,b.Mammals,b.Cover,b.Density,b.Biomass,b.Height,b.Litter),,10)
+meanRR_Restored<-matrix(c(b.Plants,b.Invertebrates,b.Birds,b.Herpeto,b.Mammals,b.Cover,b.Density,b.Biomass,b.Height,b.Litter),,10)
 
-write.table(meanRR, "Meta_Analysis_Restored_systems_results.txt", quote=F, sep="\t")
+write.table(meanRR_Restored, "Meta_Analysis_Restored_systems_results.txt", quote=F, sep="\t")
 
 ##########################################################################################################################
 ## Read data for DEGRADED SYSTEMS
@@ -284,7 +284,7 @@ library("plyr")
 ## Bootstrap for meta-analysis AGAIN 10000 TIMES
 ## Plants
 b.Plants <- c()
-for (i in 1:100){
+for (i in 1:1000){
   # First take 1 comparisons per study landscape
   bsample <- ddply(Plants,.(Site),randomRows,1)
   #now calculate the bootstrap estimate for mean RR
@@ -293,68 +293,128 @@ for (i in 1:100){
 
 ## Invertebrates
 b.Invertebrates <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Invertebrates,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Invertebrates <- c(b.Invertebrates,bestimate)}
 
 ## Birds
 b.Birds <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Birds,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Birds <- c(b.Birds,bestimate)}
 
 ## Herpeto
 b.Herpeto <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Herpeto,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Herpeto <- c(b.Herpeto,bestimate)}
 
 ## Mammals
 b.Mammals <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Mammals,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Mammals <- c(b.Mammals,bestimate)}
 
 ## Cover
 b.Cover <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Cover,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Cover <- c(b.Cover,bestimate)}
 
 ## Density
 b.Density <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Density,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Density <- c(b.Density,bestimate)}
 
 ## Biomass
 b.Biomass <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Biomass,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Biomass <- c(b.Biomass,bestimate)}
 
 ## Height
 b.Height <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Height,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Height <- c(b.Height,bestimate)}
 
 ## Litter
 b.Litter <- c()
-for (i in 1:100){
+for (i in 1:1000){
   bsample <- ddply(Litter,.(Site),randomRows,1)
   bestimate <- mean(bsample$RR)
   b.Litter <- c(b.Litter,bestimate)}
 
 ## Join results
-meanRR<-matrix(c(b.Plants,b.Invertebrates,b.Birds,b.Herpeto,b.Mammals,b.Cover,b.Density,b.Biomass,b.Height,b.Litter),,10)
+meanRR_Degraded<-matrix(c(b.Plants,b.Invertebrates,b.Birds,b.Herpeto,b.Mammals,b.Cover,b.Density,b.Biomass,b.Height,b.Litter),,10)
 
-write.table(meanRR, "Meta_Analysis_Degraded_systems_results.txt", quote=F, sep="\t")
+write.table(meanRR_Degraded, "Meta_Analysis_Degraded_systems_results.txt", quote=F, sep="\t")
+
+#### New code
+
+##Packages
+library(tidyverse)
+
+##Setting up data tables
+#Degraded
+RR_deg <- meanRR_Degraded %>%
+  as_tibble() %>%
+  select("Deg_Plants" = V1, "Deg_Invertebrates" = V2, "Deg_Birds" = V3, "Deg_Herpeto" = V4, "Deg_Mammals" = V5, "Deg_Cover" = V6, "Deg_Density" = V7, "Deg_Biomass" = V8, "Deg_Height" = V9, "Deg_Litter" = V10)
+
+deg_bio <- RR_deg %>%
+  select(Deg_Plants, Deg_Invertebrates, Deg_Birds, Deg_Herpeto, Deg_Mammals)
+
+deg_veg <- RR_deg %>%
+  select(Deg_Cover, Deg_Density, Deg_Biomass, Deg_Height, Deg_Litter)
+
+#Restored
+RR_res <- meanRR_Restored %>%
+  as_tibble() %>%
+  select("Res_Plants" = V1, "Res_Invertebrates" = V2, "Res_Birds" = V3, "Res_Herpeto" = V4, "Res_Mammals" = V5, "Res_Cover" = V6, "Res_Density" = V7, "Res_Biomass" = V8, "Res_Height" = V9, "Res_Litter" = V10)
+
+res_bio <- RR_res %>%
+  select(Res_Plants, Res_Invertebrates, Res_Birds, Res_Herpeto, Res_Mammals)
+
+res_veg <- RR_res %>%
+  select(Res_Cover, Res_Density, Res_Biomass, Res_Height, Res_Litter)
+
+#Combine by metric
+biodiversity <- bind_cols(deg_bio, res_bio)
+
+vegetation <- bind_cols(deg_veg, res_veg)
+
+
+#Plots
+
+pdf("biodiversity.pdf")
+
+biodiverse_plot <- ggplot(stack(biodiversity), aes(x=ind, y=values)) +
+  geom_boxplot(notch = TRUE) +
+  coord_flip() + 
+  ylab("Response Ratio") + 
+  xlab("Biodiversity Metric") + 
+  theme_minimal()
+
+print(biodiverse_plot)
+dev.off()
+
+pdf("vegetation.pdf")
+
+veg_plot <- ggplot(stack(vegetation), aes(x=ind, y=values)) + 
+  geom_boxplot(notch = TRUE) + 
+  coord_flip() + 
+  ylab("Response Ratio") + 
+  xlab("Vegetation Metric") + 
+  theme_minimal()
+ 
+print(veg_plot)
+dev.off()

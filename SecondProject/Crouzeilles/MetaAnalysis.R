@@ -404,21 +404,23 @@ res_veg <- RR_res %>%
 
 pdf("biodiversity.pdf")
 
-biodiverse_deg_plot <- ggplot(stack(deg_bio), aes(x=ind, y=values)) +
+biodiverse_deg_plot <- ggplot(stack(deg_bio), aes(x=ind, y=values, fill=ind)) +
   geom_boxplot(notch = TRUE) +
   coord_flip() + 
   ylab("Response Ratio") + 
   xlab("Biodiversity Metric") + 
   theme_minimal() +
-  scale_y_continuous(limits = c(-1.7, 0.1))
+  scale_y_continuous(limits = c(-1.7, 0.1)) +
+  scale_fill_manual(values = c("red", "purple", "blue", "green", "yellow"))
 
-biodiverse_res_plot <- ggplot(stack(res_bio), aes(x=ind, y=values)) +
+biodiverse_res_plot <- ggplot(stack(res_bio), aes(x=ind, y=values, fill=ind)) +
   geom_boxplot(notch = TRUE) +
   coord_flip() + 
   ylab("Response Ratio") + 
   xlab("Biodiversity Metric") + 
   theme_minimal() +
-  scale_y_continuous(limits = c(-1.7, 0.1))
+  scale_y_continuous(limits = c(-1.7, 0.1)) +
+  scale_fill_manual(values = c("red", "purple", "blue", "green", "yellow"))
 
 print(biodiverse_deg_plot)
 print(biodiverse_res_plot)
@@ -426,22 +428,24 @@ dev.off()
 
 pdf("vegetation.pdf")
 
-veg_deg_plot <- ggplot(stack(deg_veg), aes(x=ind, y=values)) + 
+veg_deg_plot <- ggplot(stack(deg_veg), aes(x=ind, y=values, fill=ind)) + 
   geom_boxplot(notch = TRUE) + 
   coord_flip() + 
   ylab("Response Ratio") + 
   xlab("Vegetation Metric") + 
   theme_minimal() +
-  scale_y_continuous(limits = c(-1.7, 0.1))
+  scale_y_continuous(limits = c(-1.7, 0.1)) +
+  scale_fill_manual(values = c("red", "purple", "blue", "green", "yellow"))
 
-veg_res_plot <- ggplot(stack(res_veg), aes(x=ind, y=values)) + 
+veg_res_plot <- ggplot(stack(res_veg), aes(x=ind, y=values, fill=ind)) + 
   geom_boxplot(notch = TRUE) + 
   coord_flip() + 
   ylab("Response Ratio") + 
   xlab("Vegetation Metric") + 
   theme_minimal() +
-  scale_y_continuous(limits = c(-1.7, 0.1))
- 
+  scale_y_continuous(limits = c(-1.7, 0.1)) +
+  scale_fill_manual(values = c("red", "purple", "blue", "green", "yellow"))
+
 print(veg_deg_plot)
 print(veg_res_plot)
 dev.off()

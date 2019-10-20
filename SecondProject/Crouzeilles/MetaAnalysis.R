@@ -2,6 +2,13 @@
 
 ##########################################################################################################################
 
+# working directory
+library(here)
+
+setwd(here("SecondProject", "Crouzeilles"))
+
+getwd()
+
 ## Read data for RESTORED SYSTEMS
 data<-read.table("Meta_Analysis.txt", header=T, sep="\t")
 data<-subset(data, data$Disturbance_Conversion=="secondary" | data$Disturbance_Conversion=="selectively_logged")
@@ -387,34 +394,54 @@ res_bio <- RR_res %>%
 res_veg <- RR_res %>%
   select(Res_Cover, Res_Density, Res_Biomass, Res_Height, Res_Litter)
 
-#Combine by metric
-biodiversity <- bind_cols(deg_bio, res_bio)
+# # Combine by metric
+# biodiversity <- bind_cols(deg_bio, res_bio)
+# 
+# vegetation <- bind_cols(deg_veg, res_veg)
 
-vegetation <- bind_cols(deg_veg, res_veg)
 
-
-#Plots
+# Plots
 
 pdf("biodiversity.pdf")
 
-biodiverse_plot <- ggplot(stack(biodiversity), aes(x=ind, y=values)) +
+biodiverse_deg_plot <- ggplot(stack(deg_bio), aes(x=ind, y=values)) +
   geom_boxplot(notch = TRUE) +
   coord_flip() + 
   ylab("Response Ratio") + 
   xlab("Biodiversity Metric") + 
-  theme_minimal()
+  theme_minimal() +
+  scale_y_continuous(limits = c(-1.7, 0.1))
 
-print(biodiverse_plot)
+biodiverse_res_plot <- ggplot(stack(res_bio), aes(x=ind, y=values)) +
+  geom_boxplot(notch = TRUE) +
+  coord_flip() + 
+  ylab("Response Ratio") + 
+  xlab("Biodiversity Metric") + 
+  theme_minimal() +
+  scale_y_continuous(limits = c(-1.7, 0.1))
+
+print(biodiverse_deg_plot)
+print(biodiverse_res_plot)
 dev.off()
 
 pdf("vegetation.pdf")
 
-veg_plot <- ggplot(stack(vegetation), aes(x=ind, y=values)) + 
+veg_deg_plot <- ggplot(stack(deg_veg), aes(x=ind, y=values)) + 
   geom_boxplot(notch = TRUE) + 
   coord_flip() + 
   ylab("Response Ratio") + 
   xlab("Vegetation Metric") + 
-  theme_minimal()
+  theme_minimal() +
+  scale_y_continuous(limits = c(-1.7, 0.1))
+
+veg_res_plot <- ggplot(stack(res_veg), aes(x=ind, y=values)) + 
+  geom_boxplot(notch = TRUE) + 
+  coord_flip() + 
+  ylab("Response Ratio") + 
+  xlab("Vegetation Metric") + 
+  theme_minimal() +
+  scale_y_continuous(limits = c(-1.7, 0.1))
  
-print(veg_plot)
+print(veg_deg_plot)
+print(veg_res_plot)
 dev.off()

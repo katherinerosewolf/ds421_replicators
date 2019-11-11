@@ -1,7 +1,9 @@
 ## this script analyses the counts from the #EpicDuckChallenge. It takes as input only
  # the master data-file, "MASTER_AllCountData.csv".
 
-data <- read.csv("MASTER_AllCountData_incAutomated.csv")
+setwd("~/ds421_replicators/ThirdProject/Hodgson")
+
+data <- read.csv("MASTER_AllCountData.csv")
 data$Date <- as.Date(data$Date, format = "%d/%m/%Y")
 data$Height_m[data$Height_m == "n/a"] <- NA
 data$Start_time[data$Start_time== "n/a"] <- NA

@@ -81,6 +81,9 @@ TukeyHSD(aov(m1r))
 
 #### plots of the fixed effects in m1r:
 ## table
+
+##NOTE: I got to here before an unignorable error appeared - Sam
+
 fixedEffects <- as.data.frame(summary(m1r)$tTable)
 plotFrame <- data.frame(tech =
                         c("Ground", "GSD 0.82 cm", "GSD 1.64 cm", "GSD 2.47 cm", "GSD 3.29 cm"),
